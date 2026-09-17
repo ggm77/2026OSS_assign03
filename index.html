@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="my.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">📝 Note CRUD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="메뉴 열기">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">목록</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.html">노트 추가</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+
+        <header class="pb-3 mb-4 border-bottom">
+            <h1 class="display-6 fw-bold">나의 노트</h1>
+            <p class="text-body-secondary">작성한 노트를 한눈에 확인하고 관리하세요.</p>
+        </header>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h4 mb-0">노트 목록</h2>
+            <a href="add.html" class="btn btn-primary">+ Add</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle bg-white">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">카테고리</th>
+                        <th scope="col">생성일</th>
+                        <th scope="col">수정일</th>
+                        <th scope="col">보기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><a href="view.html?id=1" class="text-decoration-none">회의 안건 정리</a></td>
+                        <td><span class="badge text-bg-primary">업무</span></td>
+                        <td>2026-09-01</td>
+                        <td>2026-09-03</td>
+                        <td><a href="view.html?id=1" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><a href="view.html?id=2" class="text-decoration-none">장보기 목록</a></td>
+                        <td><span class="badge text-bg-success">개인</span></td>
+                        <td>2026-09-02</td>
+                        <td>2026-09-02</td>
+                        <td><a href="view.html?id=2" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td><a href="view.html?id=3" class="text-decoration-none">사이드 프로젝트 구상</a></td>
+                        <td><span class="badge text-bg-warning">아이디어</span></td>
+                        <td>2026-09-05</td>
+                        <td>2026-09-10</td>
+                        <td><a href="view.html?id=3" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td><a href="view.html?id=4" class="text-decoration-none">운영체제 중간고사 정리</a></td>
+                        <td><span class="badge text-bg-info">학습</span></td>
+                        <td>2026-09-06</td>
+                        <td>2026-09-12</td>
+                        <td><a href="view.html?id=4" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td><a href="view.html?id=5" class="text-decoration-none">부산 여행 일정</a></td>
+                        <td><span class="badge text-bg-secondary">여행</span></td>
+                        <td>2026-09-08</td>
+                        <td>2026-09-08</td>
+                        <td><a href="view.html?id=5" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td><a href="view.html?id=6" class="text-decoration-none">읽고 싶은 책 목록</a></td>
+                        <td><span class="badge text-bg-dark">기타</span></td>
+                        <td>2026-09-10</td>
+                        <td>2026-09-15</td>
+                        <td><a href="view.html?id=6" class="btn btn-sm btn-outline-secondary">보기</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="pt-4 mt-4 text-body-secondary border-top">
+            © 2026 Note CRUD
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-uKq39gEucKxpxdjJf3iQNRZFq6iN0dySDCe1TsHz/dtiSbF6UGP7XyDzGvsZaGZa" crossorigin="anonymous"></script>
+</body>
+</html>
