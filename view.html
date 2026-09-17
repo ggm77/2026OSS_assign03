@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="my.css" rel="stylesheet">
+    <title>노트 상세보기 - Note CRUD</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">📝Note CRUD</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h1 class="display-6 fw-bold">노트 상세보기</h1>
+                    <p class="text-body-secondary mb-0">노트의 전체 내용을 확인하세요.</p>
+                </div>
+                <a href="index.html" class="btn btn-outline-secondary">목록으로</a>
+            </header>
+
+            <div class="card p-4">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">번호</dt>
+                    <dd class="col-sm-9" id="d-id"></dd>
+
+                    <dt class="col-sm-3">제목</dt>
+                    <dd class="col-sm-9" id="d-title"></dd>
+
+                    <dt class="col-sm-3">카테고리</dt>
+                    <dd class="col-sm-9"><span class="badge text-bg-primary" id="d-category"></span></dd>
+
+                    <dt class="col-sm-3">중요도</dt>
+                    <dd class="col-sm-9" id="d-priority"></dd>
+
+                    <dt class="col-sm-3">생성일</dt>
+                    <dd class="col-sm-9" id="d-createdAt"></dd>
+
+                    <dt class="col-sm-3">수정일</dt>
+                    <dd class="col-sm-9" id="d-updatedAt"></dd>
+
+                    <dt class="col-sm-3">내용</dt>
+                    <dd class="col-sm-9" id="d-content" style="white-space: pre-line;"></dd>
+                </dl>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+                <a href="#" id="editBtn" class="btn btn-primary">Edit</a>
+                <button type="button" id="deleteBtn" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Note CRUD</p>
+    </footer>
+
+    <script>
+        const notes = [
+            { id: 1, title: '회의 안건 정리', category: '업무', priority: '높음', createdAt: '2026-09-01', updatedAt: '2026-09-03', content: '이번 주 팀 회의에서 다룰 안건을 정리한다.\n1. 프로젝트 일정 점검\n2. 리소스 배분 논의\n3. 다음 스프린트 목표 설정' },
+            { id: 2, title: '장보기 목록', category: '개인', priority: '보통', createdAt: '2026-09-02', updatedAt: '2026-09-02', content: '우유, 계란, 식빵, 세제, 과일을 사야 한다.' },
+            { id: 3, title: '사이드 프로젝트 구상', category: '아이디어', priority: '높음', createdAt: '2026-09-05', updatedAt: '2026-09-10', content: 'CRUD 연습용 노트 관리 서비스를 만들어보면 좋을 것 같다. Bootstrap과 바닐라 JS로 구현해보자.' },
+            { id: 4, title: '운영체제 중간고사 정리', category: '학습', priority: '보통', createdAt: '2026-09-06', updatedAt: '2026-09-12', content: '프로세스 스케줄링, 메모리 관리, 데드락 관련 개념을 정리한다.' },
+            { id: 5, title: '부산 여행 일정', category: '여행', priority: '낮음', createdAt: '2026-09-08', updatedAt: '2026-09-08', content: '1일차: 해운대, 2일차: 감천문화마을, 3일차: 광안리' },
+            { id: 6, title: '읽고 싶은 책 목록', category: '기타', priority: '낮음', createdAt: '2026-09-10', updatedAt: '2026-09-15', content: '클린 코드, 리팩터링, 이펙티브 자바를 읽고 싶다.' }
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const requestedId = parseInt(params.get('id'), 10);
+        const note = notes.find(n => n.id === requestedId) || notes[0];
+
+        document.getElementById('d-id').textContent = note.id;
+        document.getElementById('d-title').textContent = note.title;
+        document.getElementById('d-category').textContent = note.category;
+        document.getElementById('d-priority').textContent = note.priority;
+        document.getElementById('d-createdAt').textContent = note.createdAt;
+        document.getElementById('d-updatedAt').textContent = note.updatedAt;
+        document.getElementById('d-content').textContent = note.content;
+
+        document.getElementById('editBtn').href = 'edit.html?id=' + note.id;
+
+        document.getElementById('deleteBtn').addEventListener('click', function () {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                alert('삭제되었습니다.');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
